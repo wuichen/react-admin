@@ -1,0 +1,98 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("PRISMA_POSTGRES_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Customer {
+  id              Int       @default(autoincrement()) @id
+  firstName       String
+  lastName        String
+  email           String
+  address         String
+  zipcode         String
+  city            String
+  avatar          String
+  birthday        DateTime
+  firstSeen       DateTime
+  lastSeen        DateTime
+  hasOrdered      Boolean
+  latest_purchase String
+  has_newsletter  Boolean
+  groups          String[]
+  nb_commands     Int
+  total_spent     Int
+  Review          Review[]
+  Invoice         Invoice[]
+  Command         Command[]
+}
+
+model Category {
+  id      Int       @default(autoincrement()) @id
+  name    String
+  Product Product[]
+}
+
+model Product {
+  id          Int       @default(autoincrement()) @id
+  category    Category? @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
+  reference   String
+  width       Float
+  height      Float
+  price       Float
+  thumbnail   String
+  image       String
+  description String
+  stock       Int
+  Review      Review[]
+}
+
+model Command {
+  id           Int       @default(autoincrement()) @id
+  reference    String
+  date         DateTime
+  customerId   Int
+  customer     Customer  @relation(fields: [customerId], references: [id])
+  basket       Json
+  totalExTaxes Float
+  deliverFees  Float
+  taxRate      Float
+  taxes        Float
+  total        Float
+  status       String
+  returned     Boolean
+  Invoice      Invoice[]
+  Review       Review[]
+}
+
+model Invoice {
+  id           Int      @default(autoincrement()) @id
+  date         DateTime
+  commandId    Int
+  command      Command  @relation(fields: [commandId], references: [id])
+  customerId   Int
+  customer     Customer @relation(fields: [customerId], references: [id])
+  totalExTaxes Float
+  deliverFees  Float
+  taxRate      Float
+  taxes        Float
+  total        Float
+}
+
+model Review {
+  id         Int      @default(autoincrement()) @id
+  date       DateTime
+  status     String
+  commandId  Int
+  command    Command  @relation(fields: [commandId], references: [id])
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id])
+  customerId Int
+  customer   Customer @relation(fields: [customerId], references: [id])
+  rating     Int
+  comment    String
+}

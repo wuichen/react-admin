@@ -5,9 +5,11 @@
     "dependencies": {
         "@material-ui/core": "^4.9.0",
         "@material-ui/icons": "^4.5.1",
+        "@prisma/client": "^2.0.0-beta.5",
         "@types/inflection": "^1.5.28",
         "@types/recharts": "^1.8.10",
         "data-generator-retail": "^3.0.0",
+        "express": "^4.17.1",
         "fakerest": "~2.1.0",
         "fetch-mock": "~6.3.0",
         "json-graphql-server": "~2.1.3",
@@ -35,7 +37,10 @@
         "analyze": "source-map-explorer 'build/static/js/*.js'",
         "start": "react-scripts start",
         "build": "react-scripts build",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "generate:prisma": "prisma generate",
+        "create-migration": "prisma migrate save --experimental",
+        "migrate-database": "prisma migrate up --experimental --auto-approve --create-db"
     },
     "homepage": "https://marmelab.com/react-admin-demo",
     "browserslist": [
@@ -45,6 +50,7 @@
         "not op_mini all"
     ],
     "devDependencies": {
+        "@prisma/cli": "^2.0.0-beta.5",
         "@types/classnames": "^2.2.9",
         "@types/jest": "^24.0.23",
         "@types/node": "^12.12.14",
@@ -56,5 +62,6 @@
         "@types/recompose": "^0.30.7",
         "source-map-explorer": "^2.0.0",
         "typescript": "^3.7.2"
-    }
+    },
+    "proxy": "http://localhost:8080"
 }

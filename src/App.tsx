@@ -37,9 +37,9 @@ const App = () => {
     let restoreFetch;
 
     const fetchDataProvider = async () => {
-      restoreFetch = await fakeServerFactory(
-        process.env.REACT_APP_DATA_PROVIDER
-      );
+      //   restoreFetch = await fakeServerFactory(
+      //     process.env.REACT_APP_DATA_PROVIDER
+      //   );
       const dataProviderInstance = await dataProviderFactory(
         process.env.REACT_APP_DATA_PROVIDER
       );
@@ -51,7 +51,7 @@ const App = () => {
 
     fetchDataProvider();
 
-    return restoreFetch;
+    // return restoreFetch;
   }, []);
 
   if (!dataProvider) {
@@ -74,12 +74,12 @@ const App = () => {
       layout={Layout}
       i18nProvider={i18nProvider}
     >
-      <Resource name="customers" {...visitors} />
-      <Resource name="commands" {...orders} options={{ label: "Orders" }} />
-      <Resource name="invoices" {...invoices} />
-      <Resource name="products" {...products} />
-      <Resource name="categories" {...categories} />
-      <Resource name="reviews" {...reviews} />
+      <Resource name="customer" {...visitors} />
+      <Resource name="command" {...orders} options={{ label: "Orders" }} />
+      <Resource name="invoice" {...invoices} />
+      <Resource name="product" {...products} />
+      <Resource name="category" {...categories} />
+      <Resource name="review" {...reviews} />
     </Admin>
   );
 };

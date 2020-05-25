@@ -11,7 +11,7 @@ export interface Category extends Record {
 }
 
 export interface Product extends Record {
-    category_id: Identifier;
+    categoryId: Identifier;
     description: string;
     height: number;
     image: string;
@@ -62,5 +62,5 @@ export interface FieldProps<T extends Record = Record> {
 }
 
 export interface Review extends Record {
-    customer_id: string;
+    customerId: string;
 }

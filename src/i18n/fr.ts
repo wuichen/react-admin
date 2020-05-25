@@ -102,7 +102,7 @@ const customFrenchMessages: TranslationMessages = {
                     total: 'Total',
                     unit_price: 'P.U.',
                 },
-                customer_id: 'Client',
+                customerId: 'Client',
                 date_gte: 'Emises depuis',
                 date_lte: 'Emises avant',
                 nb_items: 'Nb articles',
@@ -117,8 +117,8 @@ const customFrenchMessages: TranslationMessages = {
             fields: {
                 id: 'Numéro',
                 date: 'Date de facture',
-                customer_id: 'Client',
-                command_id: 'Commande',
+                customerId: 'Client',
+                commandId: 'Commande',
                 date_gte: 'Emises depuis',
                 date_lte: 'Emises avant',
                 address: 'Adresse',
@@ -130,7 +130,7 @@ const customFrenchMessages: TranslationMessages = {
         products: {
             name: 'Poster |||| Posters',
             fields: {
-                category_id: 'Catégorie',
+                categoryId: 'Catégorie',
                 height_gte: 'Hauteur mini',
                 height_lte: 'Hauteur maxi',
                 height: 'Hauteur',
@@ -164,8 +164,8 @@ const customFrenchMessages: TranslationMessages = {
             relative_to_poster: 'Commentaire sur',
             detail: 'Détail du commentaire',
             fields: {
-                customer_id: 'Client',
-                command_id: 'Commande',
+                customerId: 'Client',
+                commandId: 'Commande',
                 product_id: 'Produit',
                 date_gte: 'Publié depuis',
                 date_lte: 'Publié avant',
